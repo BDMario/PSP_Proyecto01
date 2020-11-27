@@ -9,15 +9,18 @@ public class AskingData {
         do{
             System.out.println("Escriba el numero de registros que desee introducir: ");
             String records = sc.nextLine();
+            //Call a method to check if the string given is an integer greater than 0
             int newRecords = checkIfIntGreaterThan0(records);
             if (newRecords > 0) {
                 System.out.println("Number of records saved");
+                gotRecords = false;
                 return newRecords;
             } else if (newRecords == 0) {
                 System.out.println("Need at least one record");
             }
         }while(gotRecords);
         sc.close();
+        //Returns -1 if something went wrong to handle it
         return -1;
     }
 
@@ -30,6 +33,7 @@ public class AskingData {
             int newNumberOfThreads = checkIfIntGreaterThan0(numberOfThreads);
             if(newNumberOfThreads > 0) {
                 System.out.println("Number of threads saved");
+                gotThreads = false;
                 return newNumberOfThreads;
             } else if (newNumberOfThreads == 0){
                 System.out.println("Need at least one thread");

@@ -22,6 +22,7 @@ public class Records extends Thread{
             // insert the data for every record assigned to this thread
             Faker emailFake;
             for (int x = 0; x < numberOfRecords; x++){
+                //Create a fake email with a maven repository
                 emailFake = new Faker();
                 emailFake.internet().emailAddress();
                 statement.executeUpdate("INSERT INTO `empleados`(`EMAIL`, `INGRESOS`) VALUES ('" + emailFake + "','" + ((int) (Math.random() * (10-1000 + 1) +1000)) + "')");
